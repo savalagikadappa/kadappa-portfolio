@@ -16,18 +16,28 @@ export default function Home() {
     return (
         <main className="max-w-7xl mx-auto px-4 py-8 overflow-x-hidden">
             {/* Resume Button */}
-            <section id="resume" className="mb-12 flex justify-center items-center">
-                <div className="flex justify-center items-center w-full sm:w-1/2">
-                    {/* Button to toggle resume visibility */}
-                    <button
-                        onClick={toggleResume}
-                        className="transition duration-300 ease-in-out transform hover:scale-105 text-white bg-indigo-600 hover:bg-indigo-700 font-extrabold text-lg py-3 px-10 rounded-xl shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    >
-                        {showResume ? "Hide Resume" : "Show Resume"}
-                    </button>
-
+            {/* About Me + Resume Button */}
+            {/* About Me + Resume Button */}
+            <section id="resume" className="mb-12 py-12 px-4  from-indigo-900 via-indigo-800 to-indigo-900 text-white rounded-2xl shadow-lg">
+                <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
+                    <div>
+                        <h2 className="text-5xl font-extrabold mb-6">Hi, I'm Kadappa Savalagi</h2>
+                        <p className="text-2xl leading-relaxed">
+                            A passionate techie with a strong interest in software development, data structures, and algorithms.
+                            I enjoy building innovative applications and solving real-world challenges through efficient code.
+                        </p>
+                    </div>
+                    <div className="w-full sm:w-auto">
+                        <button
+                            onClick={toggleResume}
+                            className="transition duration-300 ease-in-out transform hover:scale-105 text-white bg-pink-600 hover:bg-pink-700 font-bold text-xl py-4 px-12 rounded-xl shadow-2xl focus:outline-none focus:ring-4 focus:ring-pink-300"
+                        >
+                            {showResume ? "Hide Resume" : "Show Resume"}
+                        </button>
+                    </div>
                 </div>
             </section>
+
 
             {/* Resume Section - Shown only if showResume is true */}
             {showResume && (
