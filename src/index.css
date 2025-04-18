@@ -1,0 +1,7 @@
+@import "tailwindcss";
+/* Wrap your @apply in the “base” layer so Tailwind will see and process it */
+@layer base {
+  body {
+    @apply bg-gray-100;
+  }
+}
