@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import "tailwindcss"
-export default function Header({ toggleDark, isDark }) {
+
+export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
@@ -11,9 +11,9 @@ export default function Header({ toggleDark, isDark }) {
     ];
 
     return (
-        <header className="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50 backdrop-blur-md transition-colors duration-300">
+        <header className="bg-white shadow-lg sticky top-0 z-50 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                <h1 className="text-3xl font-extrabold text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text">
                     Kadappa Savalagi
                 </h1>
 
@@ -23,19 +23,12 @@ export default function Header({ toggleDark, isDark }) {
                         <a
                             key={link.label}
                             href={link.href}
-                            className="text-gray-700 dark:text-gray-200 font-medium hover:text-indigo-600 dark:hover:text-indigo-400 relative group"
+                            className="text-gray-700 font-medium hover:text-indigo-600 relative group"
                         >
                             {link.label}
                             <span className="block h-0.5 bg-indigo-500 max-w-0 group-hover:max-w-full transition-all duration-300"></span>
                         </a>
                     ))}
-                    <button
-                        onClick={toggleDark}
-                        className="ml-4 bg-gray-200 dark:bg-gray-700 p-2 rounded-full transition"
-                        aria-label="Toggle theme"
-                    >
-                        {isDark ? '🌞' : '🌙'}
-                    </button>
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -60,23 +53,17 @@ export default function Header({ toggleDark, isDark }) {
 
             {/* Mobile Dropdown */}
             {isOpen && (
-                <div className="md:hidden bg-white dark:bg-gray-800 rounded-b-xl shadow-xl mx-4 mt-2 px-4 py-4 space-y-3">
+                <div className="md:hidden bg-white rounded-b-xl shadow-xl mx-4 mt-2 px-4 py-4 space-y-3">
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
                             href={link.href}
                             onClick={() => setIsOpen(false)}
-                            className="block text-lg font-medium text-gray-800 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+                            className="block text-gray-700 font-medium hover:text-indigo-600 relative"
                         >
                             {link.label}
                         </a>
                     ))}
-                    <button
-                        onClick={toggleDark}
-                        className="w-full bg-gray-200 dark:bg-gray-700 text-center p-2 rounded-md"
-                    >
-                        {isDark ? '🌞 Light Mode' : '🌙 Dark Mode'}
-                    </button>
                 </div>
             )}
         </header>
